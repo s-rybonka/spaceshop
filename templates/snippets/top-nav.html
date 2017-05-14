@@ -1,0 +1,19 @@
+{% load i18n %}
+<!--- top-nav -->
+<div class="top-nav">
+    <div class="container">
+        <span class="menu"> </span>
+        {% with request.resolver_match.url_name as url_name %}
+            <ul>
+                <li class="{% if url_name == 'categories' %}active{% endif %}"><a
+                        href="{% url 'categories' %}">{% trans 'Categories' %}<span> </span></a></li>
+                <li class="{% if url_name == 'all_products' %}active{% endif %}"><a
+                        href="{% url 'all_products' %}">{% trans 'All Products' %}<span> </span></a></li>
+                <li class="{% if url_name == 'latest_products' %}active{% endif %}"><a
+                        href="{% url 'latest_products' %}">{% trans 'Latest Products' %}<span> </span></a></li>
+                <div class="clearfix"></div>
+            </ul>
+        {% endwith %}
+    </div>
+</div>
+<!--- top-nav -->

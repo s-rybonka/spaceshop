@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
+from django.core.urlresolvers import reverse_lazy
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -34,6 +35,13 @@ INTERNAL_IPS = [
 
 BASE_URL = 'http://127.0.0.1:8000'
 
+AUTH_USER_MODEL = 'accounts.Account'
+
+LOGIN_REDIRECT_URL = reverse_lazy('category')
+LOGIN_URL = reverse_lazy('login')
+LOGOUT_URL = reverse_lazy('logout')
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -43,6 +51,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrap3',
+
+    # Own app
+    'accounts',
+    'product'
 ]
 
 MIDDLEWARE = [
@@ -73,6 +86,10 @@ TEMPLATES = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+)
+
 WSGI_APPLICATION = 'spaceshop.wsgi.application'
 
 # Database
@@ -97,6 +114,16 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'components')
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'djangobower.finders.BowerFinder',
+    'product.utils.AssertsFinder',
+    'compressor.finders.CompressorFinder',
+)
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
@@ -119,11 +146,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
-# AUTH_USER_MODEL
 
-LOGIN_REDIRECT_URL = '/'
-LOGIN_URL = '/'
-LOGOUT_URL = '/'
+
 
 try:
     from spaceshop.local_settings import *

@@ -1,0 +1,21 @@
+{
+  "name": "spaceshop",
+  "homepage": "https://github.com/Stanislav-Rybonka/spaceshop",
+  "authors": [
+    "Stanislav Rybonka stanislav.rybonka@gmail.com"
+  ],
+  "description": "Simple Python/Django app",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "components/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

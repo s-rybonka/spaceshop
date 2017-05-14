@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+
+{% block content %}
+    <div class="main_bg">
+        <div class="wrap">
+            <div class="main">
+                <div class="login_left center-block">
+                    <h3 style="color: gray">Sign Up</h3>
+                    <div class="registration">
+                        <div class="registration_left">
+                            <div class="registration_form">
+
+                                <div class="form-group">
+                                    <form method="POST" action="{% url 'register' %}">
+                                        {% bootstrap_form_errors form=form %}
+                                        {% csrf_token %}
+                                        {% bootstrap_form form show_label=False show_help=False %}
+
+                                        <div class="row">
+                                            <div class="col-md-11 text-right">
+                                                <button class="btn btn-default auth_button" type="submit">
+                                                    Sign Up <i class="fa fa-plus" aria-hidden="true"></i>
+                                                </button>
+                                            </div>
+
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

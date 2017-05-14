@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load staticfiles bootstrap3 %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-12">
+
+            {% block breadcrumbs %}
+                <ul class="breadcrumb" style="padding-top: 10px;margin-top: 10px;">
+                    {% with active_item='categories' %}
+
+                        <li>
+                            <a style="color: darkgrey" href="{% url 'categories' %}">Categories</a>
+                        </li>
+                    {% endwith %}
+                    {% with active_item='single_category' %}
+                        <li><a {% if active_item == 'single_category' %}style="text-decoration: underline" {% endif %}
+                               href="{% url 'products' category_slug=category_id %}">{{ category_id|capfirst }}</a>
+                        </li>
+                    {% endwith %}
+
+                </ul>
+            {% endblock %}
+
+            <div class="row">
+                {% for object in object_list %}
+                    <div class="col-md-3">
+                        <div class="f-products">
+                            <div class="item" style="padding-top: 10px;">
+                                <div class="product-grid">
+                                    <div class="product-pic">
+                                        <img class="single_prod img-responsive" src="{% static 'images/p1.jpg' %}"
+                                             alt="Elliot Boots"/>
+                                    </div>
+                                    <div class="product-pic-info">
+                                        <h3><a href="#">Elliot Boots</a></h3>
+                                        <div class="product-pic-info-price-cart">
+                                            <div class="product-pic-info-price">
+                                                <span>{{ object.slug|lower }}</span>
+                                            </div>
+                                            <div class="product-pic-info-cart">
+                                                <a class="p-btn"
+                                                   href="{% url 'product_details' category_slug=object.slug|lower product_slug=object.pk %}">Details</a>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}

@@ -92,3 +92,5 @@ ENV/
 /.idea*
 /soft_environment*
 /spaceshop/local_settings.py
+/components/
+/static*

@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load staticfiles bootstrap3 i18n %}
+
+{% block content %}
+
+    <div class="main_bg">
+        <div class="wrap">
+            <div class="main">
+                <div class="login_left center-block">
+                    <h3 style="color: gray">Log in</h3>
+                    <div class="registration">
+                        <div class="registration_left">
+                            <div class="registration_form">
+
+                                <div class="form-group">
+                                    {% if form.errors %}
+                                        <p class="alert-danger">Your username and password didn't match. Please try
+                                            again.</p>
+                                    {% endif %}
+                                    {% if request.GET.next %}
+                                        {% if user.is_authenticated %}
+                                            <p class="alert-danger">Your account doesn't have access to this page. To
+                                                proceed,
+                                                please login with an account that has access.</p>
+                                        {% else %}
+                                            <p class="alert-danger">Please login for review this page.</p>
+                                        {% endif %}
+                                    {% endif %}
+                                    <form method="post" action="{% url 'login' %}">
+
+                                        {% bootstrap_form_errors form=form %}
+
+                                        {% csrf_token %}
+
+                                        {% bootstrap_field form.email show_label=False %}
+
+                                        {% bootstrap_field form.password show_label=False %}
+
+                                        <div class="row">
+                                            <div class="col-md-11 text-right">
+
+                                                <button class="btn btn-default auth_button" type="submit">
+
+                                                    Login <i class="fa fa-sign-in" aria-hidden="true"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <input type="hidden" name="next" value="{{ request.GET.next }}"/>
+
+                                        <div class="forget text-center">
+                                            <a href="{% url 'password_reset' %}">Forgot password?</a>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

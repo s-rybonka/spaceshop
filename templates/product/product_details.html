@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load staticfiles bootstrap3 %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-12">
+            {% block breadcrumbs %}
+                <ul class="breadcrumb" style="padding-top: 10px;margin-top: 10px;">
+                    {% with active_item='categories_list' %}
+                        <li><a {% if active_item == 'categories_list' %}style="color: darkgrey;"{% endif %}
+                               href="{% url 'categories' %}">Categories</a></li>
+                    {% endwith %}
+                    {% with active_item='products_list' %}
+                        <li><a {% if active_item == 'products_list' %}style="color: darkgrey;"{% endif %}
+                               href="{% url 'products' category_slug=object.slug|lower %}">{{ object.slug|capfirst }}</a>
+                        </li>
+                    {% endwith %}
+                    {% with active_item='prodact_details' %}
+                        <li><a {% if active_item == 'prodact_details' %} style="text-decoration: underline"{% endif %}
+                                                                         href="#">{{ object.name }}</a></li>
+                    {% endwith %}
+                </ul>
+            {% endblock %}
+
+            <div class="details-left">
+                <div class="details-left-slider">
+                    <ul id="etalage" class="etalage" style="display: block; width: 314px; height: 552px;">
+
+                        <li class="etalage_thumb thumb_3 etalage_thumb_active"
+                            style="display: list-item; opacity: 1; background-image: none;">
+                            <img class="etalage_thumb_image" src="{% static 'images/product-slide/image3_thumb.jpeg' %}"
+                                 style="display: inline; width: 300px; height: 400px; opacity: 1;">
+
+                        </li>
+                    </ul>
+                </div>
+                <div class="details-left-info">
+                    <div class="details-right-head">
+                        <h1>{{ object.name }}</h1>
+
+                        <p class="product-detail-info">
+                            {{ object.description }}
+                        </p>
+                        <p class="text-danger">{{ object.price }} $</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

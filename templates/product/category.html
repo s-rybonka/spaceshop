@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+    <div class="row">
+
+        {% for object in object_list %}
+            <div class="col-md-4">
+                <div class="top-grids">
+                    <div class="container">
+                        <div class="col-md-4 top-grid text-center">
+                            <div class="top-grid-pic text-center">
+                                <img src="{% static 'images/pic01.png' %}" title="Boots"/>
+                                <span class="center-block">{{ object.name }}</span>
+                            </div>
+                            <div class="top-grid-pic-info">
+                                <a  href="{% url 'products' category_slug=object.slug %}">Seeall</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,21 @@
+<!-- header -->
+<div class="header">
+    <div class="top-header">
+        <div class="container">
+            <div class="rigister-info">
+                <ul>
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url 'logout' %}">Logout</a></li>
+                    {% else %}
+                        <li><a href="{% url 'login' %}">Login</a></li>
+                        <li><a href="{% url 'register' %}">SignUp</a></li>
+                    {% endif %}
+
+                    <div class="clearfix"></div>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<!-- header -->
