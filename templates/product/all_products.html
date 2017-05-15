@@ -24,7 +24,7 @@
                                             <span>{{ object.price }}</span>
                                         </div>
                                         <div class="product-pic-info-cart">
-                                            <a class="p-btn" href="{% url 'product_details' category_slug=object.slug|lower product_slug=object.pk %}">Details</a>
+                                            <a class="p-btn" href="{% url 'product_details' category_slug=object.category.slug|lower product_slug=object.slug %}">Details</a>
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>

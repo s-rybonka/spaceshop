@@ -13,7 +13,7 @@
                     {% endwith %}
                     {% with active_item='products_list' %}
                         <li><a {% if active_item == 'products_list' %}style="color: darkgrey;"{% endif %}
-                               href="{% url 'products' category_slug=object.slug|lower %}">{{ object.slug|capfirst }}</a>
+                               href="{% url 'products' category_slug=object.category.slug|lower %}">{{ object.category.name }}</a>
                         </li>
                     {% endwith %}
                     {% with active_item='prodact_details' %}

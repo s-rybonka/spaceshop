@@ -37,7 +37,7 @@ BASE_URL = 'http://127.0.0.1:8000'
 
 AUTH_USER_MODEL = 'accounts.Account'
 
-LOGIN_REDIRECT_URL = reverse_lazy('category')
+LOGIN_REDIRECT_URL = reverse_lazy('categories')
 LOGIN_URL = reverse_lazy('login')
 LOGOUT_URL = reverse_lazy('logout')
 

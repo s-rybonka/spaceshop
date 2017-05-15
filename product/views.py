@@ -17,7 +17,7 @@ class AllProductsViews(ListView):
     model = Product
 
 
-class ProductsView(TemplateView):
+class ProductsView(ListView):
     template_name = 'product/products.html'
 
     def get_context_data(self, **kwargs):
@@ -25,11 +25,12 @@ class ProductsView(TemplateView):
 
         category_slug = self.kwargs.get('category_slug')
 
-        context['category_id'] = category_slug
-
-        context['object_list'] = Product.objects.filter(slug__slug=category_slug)
+        context['category_slug'] = category_slug[:-5]
 
         return context
+
+    def get_queryset(self):
+        return Product.objects.filter(category__slug=self.kwargs.get('category_slug'))
 
 
 class ProductDetailsViews(DetailView):

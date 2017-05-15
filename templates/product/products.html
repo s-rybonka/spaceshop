@@ -16,7 +16,7 @@
                     {% endwith %}
                     {% with active_item='single_category' %}
                         <li><a {% if active_item == 'single_category' %}style="text-decoration: underline" {% endif %}
-                               href="{% url 'products' category_slug=category_id %}">{{ category_id|capfirst }}</a>
+                               href="">{{ category_slug|capfirst }}</a>
                         </li>
                     {% endwith %}
 
@@ -37,11 +37,12 @@
                                         <h3><a href="#">Elliot Boots</a></h3>
                                         <div class="product-pic-info-price-cart">
                                             <div class="product-pic-info-price">
-                                                <span>{{ object.slug|lower }}</span>
+                                                <span>{{ object.name }}</span>
                                             </div>
+
                                             <div class="product-pic-info-cart">
                                                 <a class="p-btn"
-                                                   href="{% url 'product_details' category_slug=object.slug|lower product_slug=object.pk %}">Details</a>
+                                                   href="{% url 'product_details' category_slug=object.category.slug product_slug=object.slug %}">Details</a>
                                             </div>
                                             <div class="clearfix"></div>
                                         </div>

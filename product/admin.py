@@ -3,11 +3,11 @@ from product.models import Category, Product
 
 
 class CategoryAdmin(admin.ModelAdmin):
-    fields = ('name', 'description',)
+    fields = ('name', 'description','image',)
 
 
 class ProductAdmin(admin.ModelAdmin):
-    fields = ('name', 'slug', 'description', 'price',)
+    fields = ('name',  'description', 'price','category','image',)
 
 
 admin.site.register(Category, CategoryAdmin)

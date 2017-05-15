@@ -21,11 +21,11 @@
                                         <h3><a href="#">Elliot Boots</a></h3>
                                         <div class="product-pic-info-price-cart">
                                             <div class="product-pic-info-price">
-                                                <span>{{ object.slug|lower }}</span>
+                                                <span>{{ object.name }}</span>
                                             </div>
                                             <div class="product-pic-info-cart">
                                                 <a class="p-btn"
-                                                   href="{% url 'product_details' category_slug=object.slug|lower product_slug=object.pk %}">
+                                                   href="{% url 'product_details' category_slug=object.category.slug|lower product_slug=object.slug %}">
                                                     Details
                                                 </a>
                                             </div>
