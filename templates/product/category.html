@@ -11,8 +11,9 @@
                     <div class="container">
                         <div class="col-md-4 top-grid text-center">
                             <div class="top-grid-pic text-center">
-                                <img src="{% static 'images/pic01.png' %}" title="Boots"/>
+                                <img src="{{ object.image.url }}"  title="Boots"/>
                                 <span class="center-block">{{ object.name }}</span>
+
                             </div>
                             <div class="top-grid-pic-info">
                                 <a  href="{% url 'products' category_slug=object.slug %}">Seeall</a>

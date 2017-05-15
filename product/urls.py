@@ -3,7 +3,7 @@ from django.conf.urls import url
 from product import views as product_views
 
 urlpatterns = [
-    url(r'^categories/$',
+    url(r'^$',
         product_views.CategoryView.as_view(),
         name='categories'),
     url(r'^all-products/$',
