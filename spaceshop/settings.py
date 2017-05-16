@@ -14,20 +14,19 @@ import os
 from django.core.urlresolvers import reverse_lazy
 import psycopg2
 
-import urlparse3
+from urllib import parse
+if "DATABASE_URL" in os.environ:
 
+    parse.uses_netloc.append("postgres")
+    url = parse.urlparse(os.environ["DATABASE_URL"])
 
-
-url = urlparse3.parse_url(os.environ["DATABASE_URL"])
-
-conn = psycopg2.connect(
-    database=url.path[1:],
-    user=url.username,
-    password=url.password,
-    host=url.hostname,
-    port=url.port
-)
-
+    conn = psycopg2.connect(
+        database=url.path[1:],
+        user=url.username,
+        password=url.password,
+        host=url.hostname,
+        port=url.port
+    )
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -56,7 +55,6 @@ AUTH_USER_MODEL = 'accounts.Account'
 LOGIN_REDIRECT_URL = reverse_lazy('categories')
 LOGIN_URL = reverse_lazy('login')
 LOGOUT_URL = reverse_lazy('logout')
-
 
 # Application definition
 
@@ -102,8 +100,6 @@ TEMPLATES = [
     },
 ]
 
-
-
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
@@ -114,7 +110,6 @@ WSGI_APPLICATION = 'spaceshop.wsgi.application'
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 # Moved to local_settings.py, this file need create
 DATABASES = {}
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
@@ -166,10 +161,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-
 import dj_database_url
-DATABASES['default'] =  dj_database_url.config()
 
+DATABASES['default'] = dj_database_url.config()
 
 try:
     from spaceshop.local_settings import *
