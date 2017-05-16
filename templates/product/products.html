@@ -30,8 +30,17 @@
                             <div class="item" style="padding-top: 10px;">
                                 <div class="product-grid">
                                     <div class="product-pic">
+                                        {% if object.image %}
                                         <img class="single_prod img-responsive" src="{{ object.image.url }}"
                                              alt="Elliot Boots"/>
+                                        {% else %}
+                                         <div style="width: 240px;height: 240px;" class="center-block">
+                                        <p class="text-danger text-center" style="margin-top: 100px;" >No available image
+                                            <br>
+                                        <p class="text-info text-center">Upload one</p>
+                                        </p>
+                                    </div>
+                                {% endif %}
                                     </div>
                                     <div class="product-pic-info">
                                         <h3><a href="#">Elliot Boots</a></h3>

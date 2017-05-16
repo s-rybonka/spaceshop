@@ -1,0 +1,92 @@
+[
+  {
+    "model": "product.category",
+    "pk": 1,
+    "fields": {
+      "name": "Laptops",
+      "slug": "laptops-1221",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse diam nunc, efficitur a dapibus et, fringilla sed nisi. Pellentesque auctor erat sed elit euismod imperdiet."
+    }
+  },
+  {
+    "model": "product.category",
+    "pk": 2,
+    "fields": {
+      "name": "Sport",
+      "slug": "sport-4321",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse diam nunc, efficitur a dapibus et, fringilla sed nisi. Pellentesque auctor erat sed elit euismod imperdiet."
+    }
+  },
+   {
+    "model": "product.category",
+    "pk": 3,
+    "fields": {
+      "name": "Cars",
+      "slug": "cars-1651",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse diam nunc, efficitur a dapibus et, fringilla sed nisi. Pellentesque auctor erat sed elit euismod imperdiet."
+    }
+  },
+   {
+    "model": "product.category",
+    "pk": 4,
+    "fields": {
+      "name": "Meals",
+      "slug": "meals-1279",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse diam nunc, efficitur a dapibus et, fringilla sed nisi. Pellentesque auctor erat sed elit euismod imperdiet."
+    }
+  },
+   {
+    "model": "product.category",
+    "pk": 5,
+    "fields": {
+      "name": "Glasses",
+      "slug": "glasses-1321",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse diam nunc, efficitur a dapibus et, fringilla sed nisi. Pellentesque auctor erat sed elit euismod imperdiet."
+    }
+  },
+   {
+    "model": "product.category",
+    "pk": 6,
+    "fields": {
+      "name": "Watches",
+      "slug": "watches-1541",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse diam nunc, efficitur a dapibus et, fringilla sed nisi. Pellentesque auctor erat sed elit euismod imperdiet."
+    }
+  },
+   {
+    "model": "product.category",
+    "pk": 7,
+    "fields": {
+      "name": "Wallets",
+      "slug": "wallets-7821",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse diam nunc, efficitur a dapibus et, fringilla sed nisi. Pellentesque auctor erat sed elit euismod imperdiet."
+    }
+  },
+  {
+    "model": "product.category",
+    "pk": 8,
+    "fields": {
+      "name": "PC",
+      "slug": "pc-9987",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse diam nunc, efficitur a dapibus et, fringilla sed nisi. Pellentesque auctor erat sed elit euismod imperdiet."
+    }
+  },
+   {
+    "model": "product.category",
+    "pk": 9,
+    "fields": {
+      "name": "Phones",
+      "slug": "phones-1231",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse diam nunc, efficitur a dapibus et, fringilla sed nisi. Pellentesque auctor erat sed elit euismod imperdiet."
+    }
+  },
+   {
+    "model": "product.category",
+    "pk": 10,
+    "fields": {
+      "name": "Pencils",
+      "slug": "pencils-1459",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse diam nunc, efficitur a dapibus et, fringilla sed nisi. Pellentesque auctor erat sed elit euismod imperdiet."
+    }
+  }
+]

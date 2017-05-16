@@ -9,7 +9,7 @@ class Category(models.Model):
     """Category model"""
     name = models.CharField(max_length=30, verbose_name='Category', blank=False, unique=True)
     slug = models.SlugField(max_length=30, verbose_name='Slug', unique=True)
-    image = ResizedImageField(size=[320,300],crop=['middle', 'center'], verbose_name='Image', upload_to='media',blank=True,null=True)
+    image = ResizedImageField(size=[320,300],crop=['middle', 'center'], verbose_name='Image', upload_to='media',blank=True,null=True,quality=100)
     description = models.CharField(max_length=1024, verbose_name='Description', blank=False)
 
     class Meta:
@@ -45,7 +45,7 @@ class Product(models.Model):
     category = models.ForeignKey('product.Category', related_name='products', verbose_name='Category', null=True)
     name = models.CharField(verbose_name='Product', max_length=30)
     slug = models.SlugField(max_length=30, verbose_name='Slug', unique=True)
-    image = models.ImageField(verbose_name='Image', upload_to='media', null=True)
+    image = ResizedImageField(size=[240,240],crop=['middle', 'center'],verbose_name='Image', upload_to='media', null=True,blank=True)
     description = models.CharField(max_length=1024, verbose_name='description')
     price = models.FloatField(verbose_name='Price')
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
@@ -61,6 +61,8 @@ class Product(models.Model):
         :return: string
         """
         return self.name
+
+
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
