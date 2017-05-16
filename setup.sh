@@ -3,6 +3,8 @@
 # Parameters
 virtualenv_py_dir=soft_environment/python_env
 nodeenv_dir=soft_environment/nodejs_env
+chmod 777 -R virtualenv_py_dir
+chmod 777 -R nodeenv_dir
 
 # Create new environments
 virtualenv -p python3.5 $virtualenv_py_dir
