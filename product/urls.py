@@ -12,7 +12,7 @@ urlpatterns = [
     url(r'^products/(?P<category_slug>\w+-\d+)/$',
         product_views.ProductsView.as_view(),
         name='products'),
-    url(r'^products/(?P<category_slug>\w+-\d+)/(?P<product_slug>\w+-\d+)/$',
+    url(r'^products/(?P<category_slug>\w+.*\d+)/(?P<product_slug>\w+.*\d+)/$',
         product_views.ProductDetailsViews.as_view(),
         name='product_details'),
     url(r'^latest-products/$',
