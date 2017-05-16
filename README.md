@@ -33,6 +33,8 @@ DATABASES = {
     },
 }
 ```
+##### Don't forget about database, you should create it alone, configure roles and permissions if you have some special
+
 
 ###### Recommended PyCharm plugins  ######
 * Markdown support
