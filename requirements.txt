@@ -8,4 +8,4 @@ django-rosetta==0.7.12
 psycopg2==2.6.2
 django-resized==0.3.5
 dj-database-url==0.4.2
-urlparse==3-1.1
+urlparse3==1.1
