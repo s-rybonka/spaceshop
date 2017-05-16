@@ -13,11 +13,12 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 import os
 from django.core.urlresolvers import reverse_lazy
 import psycopg2
-from urllib.parse import urlparse
+import urlparse3
+import urllib
 
 
-urlparse.uses_netloc.append("postgres")
-url = urlparse.urlparse(os.environ["DATABASE_URL"])
+urlparse3.uses_netloc.append("postgres")
+url = urlparse3.parse_url(os.environ["DATABASE_URL"])
 
 conn = psycopg2.connect(
     database=url.path[1:],
