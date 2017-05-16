@@ -12,27 +12,9 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 from django.core.urlresolvers import reverse_lazy
-import psycopg2
-import dj_database_url
-from urllib import parse
-
-if "DATABASE_URL" in os.environ:
-
-    parse.uses_netloc.append("postgres")
-    url = parse.urlparse(os.environ["DATABASE_URL"])
-
-    conn = psycopg2.connect(
-        database=url.path[1:],
-        user=url.username,
-        password=url.password,
-        host=url.hostname,
-        port=url.port
-    )
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -44,7 +26,7 @@ SECRET_KEY = 'stf)=8djmvems$$lnmc-2@o9puwf&$u(ui51nvdy2vs$)%d$v+'
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'space-shop.herokuapp.com'
+    '*'
 ]
 
 INTERNAL_IPS = [
@@ -112,9 +94,7 @@ WSGI_APPLICATION = 'spaceshop.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 # Moved to local_settings.py, this file need create
-DATABASES = {
-    'default': dj_database_url.config()
-}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
@@ -160,19 +140,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
-# Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT, 'static'),
-)
-
-# Simplified static file serving.
-# https://warehouse.python.org/project/whitenoise/
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 try:
     from spaceshop.local_settings import *
