@@ -41,7 +41,7 @@ SECRET_KEY = 'stf)=8djmvems$$lnmc-2@o9puwf&$u(ui51nvdy2vs$)%d$v+'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '127.0.0.1'
+    '*'
 ]
 
 INTERNAL_IPS = [
