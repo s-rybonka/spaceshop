@@ -3,29 +3,29 @@
 
 {% block content %}
 
-    <div class="main_bg">
-        <div class="wrap">
-            <div class="main">
-                <div class="login_left center-block">
-                    <h3 style="color: gray">Log in</h3>
-                    <div class="registration">
-                        <div class="registration_left">
-                            <div class="registration_form">
+    <div class="wrap" style="padding-bottom: 400px">
+        <div class="main">
+            <div class="login_left center-block">
+                <h3 style="color: gray">Log in</h3>
+                <div class="registration">
+                    <div class="registration_left">
+                        <div class="registration_form">
 
-                                <div class="form-group">
-                                    {% if form.errors %}
-                                        <p class="alert-danger">Your username and password didn't match. Please try
-                                            again.</p>
+                            <div class="form-group">
+                                {% if form.errors %}
+                                    <p class="alert-danger">Your username and password didn't match. Please try
+                                        again.</p>
+                                {% endif %}
+                                {% if request.GET.next %}
+                                    {% if user.is_authenticated %}
+                                        <p class="alert-danger">Your account doesn't have access to this page. To
+                                            proceed,
+                                            please login with an account that has access.</p>
+                                    {% else %}
+                                        <p class="alert-danger">Please login for review this page.</p>
                                     {% endif %}
-                                    {% if request.GET.next %}
-                                        {% if user.is_authenticated %}
-                                            <p class="alert-danger">Your account doesn't have access to this page. To
-                                                proceed,
-                                                please login with an account that has access.</p>
-                                        {% else %}
-                                            <p class="alert-danger">Please login for review this page.</p>
-                                        {% endif %}
-                                    {% endif %}
+                                {% endif %}
+                                <div style="padding-left: 15px;padding-top: 20px;border: 1px solid gainsboro">
                                     <form method="post" action="{% url 'login' %}">
 
                                         {% bootstrap_form_errors form=form %}
@@ -53,13 +53,13 @@
                                         </div>
                                     </form>
                                 </div>
-
                             </div>
+
                         </div>
                     </div>
                 </div>
-                <div class="clear"></div>
             </div>
+            <div class="clear"></div>
         </div>
     </div>
 {% endblock %}

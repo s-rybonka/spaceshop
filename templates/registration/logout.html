@@ -1,31 +1,32 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="main_bg">
-        <div class="wrap">
-            <div class="main">
-                <div class="login_left center-block">
-                    <h3 style="color: gray">Log out</h3>
-                    <div class="registration">
-                        <div class="registration_left">
-                            <div class="registration_form">
 
-                                <strong>
-                                    <p class="text-center" style="margin-top: 100px; color: green">YOU ARE SUCCESSFULLY
-                                        LOG OUT!</p>
-                                </strong>
-                                <div class="text-center">
-                                    <a style="color: gray" href="{% url 'login' %}">
-                                        Log in again <i style="color: red" class="fa fa-sign-in" aria-hidden="true"></i>
-                                    </a>
-                                </div>
+    <div class="wrap" style="padding-bottom: 400px;">
+        <div class="main">
+            <div class="login_left center-block">
+                <h3 style="color: gray">Log out</h3>
+                <div class="registration">
+                    <div class="registration_left">
+                        <div class="registration_form" style="border: 1px solid gainsboro">
 
-
+                            <strong>
+                                <p class="text-center" style="margin-top: 50px; color: green">YOU ARE SUCCESSFULLY
+                                    LOG OUT!</p>
+                            </strong>
+                            <div class="text-center">
+                                <a style="color: gray" href="{% url 'login' %}">
+                                    Log in again <i style="color: red; padding-bottom: 50px;" class="fa fa-sign-in"
+                                                    aria-hidden="true"></i>
+                                </a>
                             </div>
+
+
                         </div>
                     </div>
                 </div>
-                <div class="clear"></div>
             </div>
+            <div class="clear"></div>
         </div>
     </div>
+
 {% endblock %}
