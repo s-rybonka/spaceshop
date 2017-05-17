@@ -14,7 +14,6 @@ import os
 from django.core.urlresolvers import reverse_lazy
 import decouple
 
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -25,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = decouple.config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = decouple.config('DEBUG',default=False, cast=bool)
+DEBUG = decouple.config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = decouple.config('ALLOWED_HOSTS', cast=decouple.Csv())
 
@@ -87,10 +86,15 @@ WSGI_APPLICATION = 'spaceshop.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
+ENGINE = None
+if DEBUG:
+    ENGINE = 'django.db.backends.postgresql_psycopg2'
+else:
+    ENGINE = 'django.db.backends.mysql'
 
 DATABASES = {
     'default': {
-        'ENGINE': decouple.config('ENGINE'),
+        'ENGINE': ENGINE,
         'NAME': decouple.config('DB_NAME'),
         'USER': decouple.config('DB_USER'),
         'PASSWORD': decouple.config('DB_PASSWORD'),
