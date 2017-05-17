@@ -6,6 +6,7 @@ from .models import Category, Product
 
 
 class CategoryView(ListView):
+    paginate_by = 5
     template_name = 'product/category.html'
 
     def get_queryset(self):
@@ -13,11 +14,13 @@ class CategoryView(ListView):
 
 
 class AllProductsViews(ListView):
+    paginate_by = 10
     template_name = 'product/all_products.html'
     model = Product
 
 
 class ProductsView(ListView):
+    paginate_by = 5
     template_name = 'product/products.html'
 
     def get_context_data(self, **kwargs):
@@ -42,6 +45,7 @@ class ProductDetailsViews(DetailView):
 
 
 class LatestProductsView(LoginRequiredMixin, ListView):
+    paginate_by = 5
     template_name = 'product/latest_products.html'
     hours_24 = timezone.now() - timezone.timedelta(days=1)
 

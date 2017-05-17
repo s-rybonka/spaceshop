@@ -10,15 +10,11 @@
                     <div class="container">
                         <div class="col-md-4 top-grid text-center">
                             <div class="top-grid-pic text-center">
+
                                 {% if object.image %}
-                                    <img src="{{ object.image.url }}" title="Boots"/>
+                                    <img src="{{ object.image.url }}"    title="Boots"/>
                                 {% else %}
-                                    <div style="width: 320px;height: 300px;" class="center-block">
-                                        <p class="text-danger text-center" style="margin-top: 100px;">No available image
-                                            <br>
-                                        <p class="text-info">Upload one</p>
-                                        </p>
-                                    </div>
+                                     <img src="{% static 'images/empty_cat.png' %}"  title="Boots"/>
                                 {% endif %}
                                 <span class="center-block">{{ object.name }}</span>
 
@@ -35,4 +31,8 @@
 
     </div>
 
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/auto_hover.js' %}" type="text/javascript"></script>
 {% endblock %}

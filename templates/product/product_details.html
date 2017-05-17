@@ -29,17 +29,13 @@
 
                         <li class="etalage_thumb thumb_3 etalage_thumb_active"
                             style="display: list-item; opacity: 1; background-image: none;">
-                           {% if object.image %}
-                                    <img class="single_prod img-responsive" src="{% static 'images/p1.jpg' %}"
-                                         alt="Elliot Boots"/>
-                                    {% else %}
-                                      <div style="width: 240px;height: 240px; border: 1px solid gainsboro" class="center-block">
-                                        <p class="text-danger text-center" style="margin-top: 100px;">No available image
-                                            <br>
-                                        <p class="text-info text-center">Upload one</p>
-                                        </p>
-                                    </div>
-                                    {% endif %}
+                            {% if object.image %}
+                                <img class="single_prod img-responsive" src="{{ object.image.url }}"
+                                     alt="Elliot Boots"/>
+                            {% else %}
+                                <img class="single_prod img-responsive" src="{% static 'images/empty_prod.png' %}"
+                                     alt="Elliot Boots"/>
+                            {% endif %}
 
                         </li>
                     </ul>

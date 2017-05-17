@@ -8,41 +8,42 @@
 
             <div class="row" style="margin-top: 20px; padding-bottom: 50px;">
                 {% for object in object_list %}
-                <div class="col-md-3">
-                    <div class="f-products">
+                    <div class="col-md-3" style="padding-bottom: 50px;">
+                        <div class="f-products">
 
-                        <div class="item" style="padding-top: 10px;">
-                            <div class="product-grid">
-                                <div class="product-pic">
-                                    {% if object.image %}
-                                    <img class="single_prod img-responsive" src="{% static 'images/p1.jpg' %}"
-                                         alt="Elliot Boots"/>
-                                    {% else %}
-                                      <div style="width: 240px;height: 240px;" class="center-block">
-                                        <p class="text-danger text-center" style="margin-top: 100px;">No available image
-                                            <br>
-                                        <p class="text-info text-center">Upload one</p>
-                                        </p>
+                            <div class="item" style="padding-top: 10px;">
+                                <div class="product-grid">
+                                    <div class="product-pic">
+                                        {% if object.image %}
+                                            <img class="single_prod img-responsive" src="{{ object.image.url }}"
+                                                 alt="Elliot Boots"/>
+
+                                        {% else %}
+                                            <img class="single_prod img-responsive"
+                                                 src="{% static 'images/empty_prod.png' %}"
+                                                 alt="Elliot Boots"/>
+
+
+                                        {% endif %}
                                     </div>
-                                    {% endif %}
-                                </div>
-                                <div class="product-pic-info">
-                                    <h3><a href="#">{{ object.name }}</a></h3>
-                                    <div class="product-pic-info-price-cart">
-                                        <div class="product-pic-info-price">
-                                            <span>{{ object.price }}</span>
+                                    <div class="product-pic-info">
+                                        <h3><a href="#">{{ object.name }}</a></h3>
+                                        <div class="product-pic-info-price-cart">
+                                            <div class="product-pic-info-price">
+                                                <span>{{ object.price }}</span>
+                                            </div>
+                                            <div class="product-pic-info-cart">
+                                                <a class="p-btn"
+                                                   href="{% url 'product_details' category_slug=object.category.slug|lower product_slug=object.slug %}">Details</a>
+                                            </div>
+                                            <div class="clearfix"></div>
                                         </div>
-                                        <div class="product-pic-info-cart">
-                                            <a class="p-btn" href="{% url 'product_details' category_slug=object.category.slug|lower product_slug=object.slug %}">Details</a>
-                                        </div>
-                                        <div class="clearfix"></div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="clearfix"></div>
                         </div>
-                        <div class="clearfix"></div>
                     </div>
-                </div>
                 {% endfor %}
 
             </div>

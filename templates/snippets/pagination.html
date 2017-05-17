@@ -1,0 +1,20 @@
+{% load i18n %}
+
+{% if is_paginated %}
+    <nav class="text-center">
+        <ul class="pagination">
+            <li>
+                <a class="paginate_by"
+                   href="?page=1">&laquo;</a>
+            </li>
+            {% for p in paginator.page_range %}
+                <li {% if object_list.number == p %}class="active"{% endif %}>
+                    <a class="paginate_by" href="?page={{ p }}">{{ p }}</a>
+                </li>
+            {% endfor %}
+            <li>
+                <a class="paginate_by" href="?page={{ paginator.num_pages }}">&raquo;</a>
+            </li>
+        </ul>
+    </nav>
+{% endif %}

@@ -8,22 +8,17 @@
 
             <div class="row" style="margin-top: 20px; padding-bottom: 50px;">
                 {% for object in object_list %}
-                    <div class="col-md-3">
-
+                    <div class="col-md-3" style="padding-bottom: 50px;">
 
                             <div class="item" style="padding-top: 10px;">
                                 <div class="product-grid">
                                     <div class="product-pic">
                                         {% if object.image %}
-                                    <img class="single_prod img-responsive" src="{% static 'images/p1.jpg' %}"
+                                    <img class="single_prod img-responsive" src="{{ object.image.url }}"
                                          alt="Elliot Boots"/>
                                     {% else %}
-                                      <div style="width: 240px;height: 240px; " class="center-block">
-                                        <p class="text-danger text-center" style="margin-top: 100px;">No available image
-                                            <br>
-                                        <p class="text-info text-center">Upload one</p>
-                                        </p>
-                                    </div>
+                                        <img class="single_prod img-responsive" src="{% static 'images/empty_prod.png' %}"
+                                         alt="Elliot Boots"/>
                                     {% endif %}
                                     </div>
                                     <div class="product-pic-info">
