@@ -28,7 +28,7 @@ class ProductsView(ListView):
 
         category_slug = self.kwargs.get('category_slug')
 
-        context['category_slug'] = category_slug[:-5]
+        context['category_slug'] = category_slug
 
         return context
 

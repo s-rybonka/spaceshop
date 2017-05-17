@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load staticfiles bootstrap3 %}
+{% load active_item %}
 
 {% block content %}
 
@@ -7,22 +8,30 @@
         <div class="col-md-12">
             {% block breadcrumbs %}
                 <ul class="breadcrumb" style="padding-top: 10px;margin-top: 10px; padding-bottom: 50px;">
-                    {% with active_item='categories_list' %}
-                        <li><a {% if active_item == 'categories_list' %}style="color: darkgrey;"{% endif %}
-                               href="{% url 'categories' %}">Categories</a></li>
-                    {% endwith %}
-                    {% with active_item='products_list' %}
-                        <li><a {% if active_item == 'products_list' %}style="color: darkgrey;"{% endif %}
-                               href="{% url 'products' category_slug=object.category.slug|lower %}">{{ object.category.name }}</a>
-                        </li>
-                    {% endwith %}
-                    {% with active_item='prodact_details' %}
-                        <li><a {% if active_item == 'prodact_details' %} style="text-decoration: underline"{% endif %}
-                                                                         href="#">{{ object.name }}</a></li>
-                    {% endwith %}
+                    {% url 'categories' as categories %}
+
+                    <li>
+                        <a {% if categories|active:request %}style="text-decoration: underline"
+                           {% else %}style="color: darkgrey;"{% endif %}
+                           href="{{ categories }}">Categories</a>
+                    </li>
+
+                    {% url 'products' category_slug=object.category.slug|lower as products %}
+                    <li>
+                        <a {% if products|active:request %}style="text-decoration: underline" {% else %}style="color: darkgrey;"{% endif %}
+                           href="{{ products }}">{{ object.category.name }}
+                        </a>
+                    </li>
+
+                    {% url 'product_details' category_slug=object.category.slug|lower product_slug=object.slug as product_details %}
+                    <li>
+                        <a {% if product_details|active:request %}style="text-decoration: underline"
+                           {% else %}style="color: darkgrey;"{% endif %}
+                           href="{{ product_details }}">{{ object.name }}</a>
+                    </li>
+
                 </ul>
             {% endblock %}
-
             <div class="details-left">
                 <div class="details-left-slider">
                     <ul id="etalage" class="etalage" style="display: block; width: 314px; height: 552px;">
@@ -33,7 +42,7 @@
                                 <img class="single_prod img-responsive" src="{{ object.image.url }}"
                                      alt="Elliot Boots"/>
                             {% else %}
-                                <img class="single_prod img-responsive" src="{% static 'images/empty_prod.png' %}"
+                                <img class="single_prod img-responsive" src="{% static 'images/empty_prod-1.png' %}"
                                      alt="Elliot Boots"/>
                             {% endif %}
 
@@ -47,12 +56,10 @@
                         <p class="product-detail-info">
                             {{ object.description }}
                         </p>
-                        <p class="text-danger">{{ object.price }} $</p>
+                        <p class="text-danger" style="padding-bottom: 10px;">{{ object.price|floatformat }} $</p>
                     </div>
                 </div>
-
             </div>
-
         </div>
     </div>
 

@@ -23,6 +23,9 @@ class Category(models.Model):
         """
         return self.name
 
+    def get_short_description(self):
+        return '{0}...'.format(self.description[:50])
+
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
         """Generate unique slug for each category with (get_random_string()) function,
@@ -63,6 +66,8 @@ class Product(models.Model):
         return self.name
 
 
+    def get_products_description(self):
+        return '{0}...'.format(self.description[:30])
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):

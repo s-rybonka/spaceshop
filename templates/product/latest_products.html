@@ -10,35 +10,41 @@
                 {% for object in object_list %}
                     <div class="col-md-3" style="padding-bottom: 50px;">
 
-                            <div class="item" style="padding-top: 10px;">
-                                <div class="product-grid">
-                                    <div class="product-pic">
-                                        {% if object.image %}
-                                    <img class="single_prod img-responsive" src="{{ object.image.url }}"
-                                         alt="Elliot Boots"/>
+                        <div class="item" style="padding-top: 10px;">
+                            <div class="product-grid">
+                                <div class="product-pic">
+                                    {% if object.image %}
+                                        <img class="single_prod img-responsive" src="{{ object.image.url }}"
+                                             alt="Elliot Boots"/>
                                     {% else %}
-                                        <img class="single_prod img-responsive" src="{% static 'images/empty_prod.png' %}"
-                                         alt="Elliot Boots"/>
+                                        <img class="single_prod img-responsive"
+                                             src="{% static 'images/empty_prod-1.png' %}"
+                                             alt="Elliot Boots"/>
                                     {% endif %}
-                                    </div>
-                                    <div class="product-pic-info">
-                                        <h3><a href="#">Elliot Boots</a></h3>
-                                        <div class="product-pic-info-price-cart">
-                                            <div class="product-pic-info-price">
-                                                <span>{{ object.name }}</span>
-                                            </div>
-                                            <div class="product-pic-info-cart">
-                                                <a class="p-btn"
-                                                   href="{% url 'product_details' category_slug=object.category.slug|lower product_slug=object.slug %}">
-                                                    Details
-                                                </a>
-                                            </div>
-                                            <div class="clearfix"></div>
+                                </div>
+                                <div class="product-pic-info">
+                                    <div class="product-pic-info-price-cart">
+                                        <div class="product-pic-info-price">
+
+                                            <p>
+                                                {{ object.get_products_description }}
+                                            </p>
+                                            <p class="text-danger">
+                                                {{ object.price|floatformat }}$
+                                            </p>
+                                            <span>{{ object.name }}</span>
                                         </div>
+                                        <div class="product-pic-info-cart">
+                                            <a class="p-btn"
+                                               href="{% url 'product_details' category_slug=object.category.slug|lower product_slug=object.slug %}">
+                                                Details
+                                            </a>
+                                        </div>
+                                        <div class="clearfix"></div>
                                     </div>
                                 </div>
                             </div>
-
+                        </div>
 
 
                     </div>

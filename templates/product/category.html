@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
+
 {% block content %}
 
     <div class="row">
@@ -12,10 +13,11 @@
                             <div class="top-grid-pic text-center">
 
                                 {% if object.image %}
-                                    <img src="{{ object.image.url }}"    title="Boots"/>
+                                    <img src="{{ object.image.url }}" title="Boots"/>
                                 {% else %}
-                                     <img src="{% static 'images/empty_cat.png' %}"  title="Boots"/>
+                                    <img src="{% static 'images/empty_cat.png' %}" title="Boots"/>
                                 {% endif %}
+                                <p>{{ object.get_short_description }}</p>
                                 <span class="center-block">{{ object.name }}</span>
 
                             </div>

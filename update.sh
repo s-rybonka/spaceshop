@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+git pull
+
 # Activate env
 . soft_environment/python_env/bin/activate
 

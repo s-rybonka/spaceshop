@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load staticfiles bootstrap3 %}
+{% load active_item %}
 
 {% block content %}
 
@@ -8,17 +9,23 @@
 
             {% block breadcrumbs %}
                 <ul class="breadcrumb" style="padding-top: 10px;margin-top: 10px;">
-                    {% with active_item='categories' %}
 
-                        <li>
-                            <a style="color: darkgrey" href="{% url 'categories' %}">Categories</a>
-                        </li>
-                    {% endwith %}
-                    {% with active_item='single_category' %}
-                        <li><a {% if active_item == 'single_category' %}style="text-decoration: underline" {% endif %}
-                               href="">{{ category_slug|capfirst }}</a>
-                        </li>
-                    {% endwith %}
+                    {% url 'categories' as categories %}
+
+                    <li>
+                        <a {% if categories|active:request %} class="active"
+                        {% else %} style="color: darkgrey"{% endif %} href="{{ categories }}">Categories
+                        </a>
+                    </li>
+
+                    {% url 'products' category_slug=category_slug|lower as products %}
+
+                    <li>
+                        <a {% if products|active:request %}style="text-decoration: underline"
+                           {% else %} style="color: darkgrey"{% endif %}
+                           href="{{ products }}">{{ category_slug|capfirst|slice:":-5" }}
+                        </a>
+                    </li>
 
                 </ul>
             {% endblock %}
@@ -38,12 +45,20 @@
                                                  src="{% static 'images/empty_prod-1.png' %}"
                                                  alt="Elliot Boots"/>
                                         {% endif %}
+
                                     </div>
                                     <div class="product-pic-info">
-                                        <h3><a href="#">Elliot Boots</a></h3>
+                                        <p>
+                                            {{ object.get_products_description }}
+                                        </p>
+                                        <p class="text-danger">
+                                            {{ object.price|floatformat }}$
+                                        </p>
+
                                         <div class="product-pic-info-price-cart">
                                             <div class="product-pic-info-price">
                                                 <span>{{ object.name }}</span>
+
                                             </div>
 
                                             <div class="product-pic-info-cart">
@@ -55,8 +70,6 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="clearfix"></div>
                         </div>
                     </div>
                 {% endfor %}
