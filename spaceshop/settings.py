@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 from django.core.urlresolvers import reverse_lazy
-from decouple import config,Csv
+import decouple
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -22,12 +22,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = decouple.config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG',default=False, cast=bool)
+DEBUG = decouple.config('DEBUG',default=False, cast=bool)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+ALLOWED_HOSTS = decouple.config('ALLOWED_HOSTS', cast=decouple.Csv())
 
 AUTH_USER_MODEL = 'accounts.Account'
 
@@ -90,11 +90,11 @@ WSGI_APPLICATION = 'spaceshop.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': config('ENGINE'),
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASSWORD'),
-        'HOST': config('DB_HOST'),
+        'ENGINE': decouple.config('ENGINE'),
+        'NAME': decouple.config('DB_NAME'),
+        'USER': decouple.config('DB_USER'),
+        'PASSWORD': decouple.config('DB_PASSWORD'),
+        'HOST': decouple.config('DB_HOST'),
         'PORT': '',
     }
 }
