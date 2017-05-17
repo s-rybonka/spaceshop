@@ -95,3 +95,4 @@ ENV/
 /components/
 /static*
 media/
+settings.ini

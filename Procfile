@@ -1,1 +1,0 @@
-web: gunicorn spaceshop.wsgi --log-file -
