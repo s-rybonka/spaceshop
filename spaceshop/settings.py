@@ -13,8 +13,9 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 import os
 from django.core.urlresolvers import reverse_lazy
 
-# Import decouple, allow set flexible options for production and development settings.py
-# All settings saved in settings.ini file, in root directory
+# Import package decouple, allow set flexible options for production and development in settings.py
+# No need to create different settings like (local_settings.py), all options in settings.ini
+# Location settings.ini in project - root directory
 from  decouple import config, Csv
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -29,7 +30,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS',default='127.0.0.1', cast=Csv())
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='127.0.0.1', cast=Csv())
 
 # Custom user model
 AUTH_USER_MODEL = 'accounts.Account'
@@ -93,7 +94,6 @@ WSGI_APPLICATION = 'spaceshop.wsgi.application'
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
 # Options for engine, allow use different database backends
-ENGINE = None
 if DEBUG:
     ENGINE = 'django.db.backends.postgresql_psycopg2'
 else:
@@ -157,6 +157,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
+
+# For collect static on production used whitenoise package
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 

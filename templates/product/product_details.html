@@ -16,7 +16,8 @@
                     </li>
                     {% url 'products' category_slug=object.category.slug|lower as products %}
                     <li>
-                        <a {% if products|active:request %}style="text-decoration: underline" {% else %}style="color: darkgrey;"{% endif %}
+                        <a {% if products|active:request %}style="text-decoration: underline"
+                           {% else %}style="color: darkgrey;"{% endif %}
                            href="{{ products }}">{{ object.category.name }}
                         </a>
                     </li>
@@ -36,22 +37,22 @@
                             style="display: list-item; opacity: 1; background-image: none;">
                             {% if object.image %}
                                 <img class="single_prod img-responsive" src="{{ object.image.url }}"
-                                     alt="Elliot Boots"/>
+                                     alt="img"/>
                             {% else %}
                                 <img class="single_prod img-responsive" src="{% static 'images/empty_prod-1.png' %}"
-                                     alt="Elliot Boots"/>
+                                     alt="img"/>
                             {% endif %}
                         </li>
                     </ul>
                 </div>
                 <div class="details-left-info">
                     <div class="details-right-head">
-                        <h1>{{ object.name }}</h1>
+                        <h1 style="font-size: 25px;color: #0AA5E2">{{ object.name }}</h1>
 
                         <p class="product-detail-info">
                             {{ object.description }}
                         </p>
-                        <p class="text-danger" style="padding-bottom: 10px;">{{ object.price|floatformat }} $</p>
+                        <p  style="padding-bottom: 10px;color: red;">{{ object.price|floatformat }} $</p>
                     </div>
                 </div>
             </div>

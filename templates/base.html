@@ -13,6 +13,7 @@
     <link href="{% static 'css/style.css' %}" rel='stylesheet' type='text/css'/>
     <!-- Custom Theme files -->
 
+    <!-- Block for styles extends -->
     {% block styles %}{% endblock %}
 </head>
 <body>
@@ -23,7 +24,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-
+            <!-- Main block for page content -->
             {% block content %}
 
                 {% block breadcrumbs %}
@@ -36,13 +37,14 @@
 
         </div>
     </div>
+
 </div>
-<!-- container -->
 
 {% include 'snippets/footer.html' %}
 
 <script src="{% static 'jquery/dist/jquery.min.js' %}"></script>
 
+<!-- Block for scripts extends -->
 {% block scripts %}{% endblock %}
 
 </body>

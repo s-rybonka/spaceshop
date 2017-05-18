@@ -61,7 +61,7 @@ class Product(models.Model):
         verbose_name_plural = 'Products'
 
     def __str__(self):
-        """ Get category name
+        """ Get product name
 
         :return: string
         """

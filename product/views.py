@@ -8,9 +8,7 @@ from .models import Category, Product
 
 
 class CategoryView(SuccessMessageMixin, ListView):
-    '''
-    Get all categories 5 per page here
-    '''
+    '''Get all categories 5 per page here'''
     paginate_by = 5
     template_name = 'product/categories.html'
 
@@ -26,9 +24,7 @@ class AllProductsViews(ListView):
 
 
 class ProductsView(ListView):
-    '''Get some products inside chosen category
-    5 per page
-    '''
+    '''Get some products inside chosen category5 per page'''
     paginate_by = 5
     template_name = 'product/products.html'
 
@@ -52,14 +48,12 @@ class ProductsView(ListView):
 
 
 class ProductDetailsViews(DetailView):
-    '''
-    Get single product here
-    '''
+    '''Get single product here'''
     template_name = 'product/product_details.html'
     model = Product
 
     def get_object(self, queryset=None):
-        '''
+        '''Get single object
 
         :param queryset:
         :return: object depend on slug
@@ -68,9 +62,7 @@ class ProductDetailsViews(DetailView):
 
 
 class LatestProductsView(LoginRequiredMixin, ListView):
-    '''
-    Get latest products list in 24 hours
-    '''
+    '''Get latest products list during 24 hours'''
     paginate_by = 5
     template_name = 'product/latest_products.html'
     hours_24 = timezone.now() - timezone.timedelta(days=1)

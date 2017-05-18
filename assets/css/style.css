@@ -27,9 +27,10 @@ body a {
 }
 
 .top-header {
-    background: url(../images/top-header-bg.png) no-repeat 0px 0px;
+    background-color:#337ab7;
     background-size: cover;
     min-height: 80px;
+    padding-bottom: 10px;
 }
 
 .rigister-info {
@@ -409,7 +410,7 @@ span.menu {
 }
 
 .top-grid-pic-info a {
-    background: #8b4613;
+    background: #428bca;
     display: inline-block;
     padding: 0.7em 1.2em;
     text-transform: uppercase;
@@ -420,7 +421,7 @@ span.menu {
 
 .top-grid-pic-info a:hover {
     color: #FFF;
-    background: #4f4844;
+    background: dodgerblue;
 }
 
 /*-- bottom-grids --*/
@@ -459,7 +460,7 @@ span.menu {
 .product-pic-info-price span {
     font-size: 1.5em;
     font-family: 'Lora', serif;
-    color: #8b4613;
+    color: cornflowerblue;
 }
 
 .product-pic-info-cart {
@@ -467,7 +468,7 @@ span.menu {
 }
 
 a.p-btn {
-    background: #8b4613;
+    background: #337ab7;
     font-family: 'Lora', serif;
     color: #FFF;
     padding: 0.7em 1.2em;
@@ -477,7 +478,7 @@ a.p-btn {
 }
 
 a.p-btn:hover {
-    background: #4f4844;
+    background: dodgerblue;
 }
 
 .product-grid:hover div.product-pic-info {
@@ -4647,12 +4648,11 @@ span.color7 {
 .payments {
     font-size: 1.5em;
 }
-.footer {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1rem;
-  background-color: #efefef;
-  text-align: center;
+.footer{
+    background-color: #337ab7;
+    height:40px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    margin-bottom:0px;
 }

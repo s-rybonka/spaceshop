@@ -1,4 +1,4 @@
-# Space Shop #
+# SpaceShop #
 
 ## Pre-requirements ##
 * Python >= 3.5
@@ -12,7 +12,7 @@
 2. Create settings.ini file, example below; 
 3. Go to the project root directory "spaceshop", through your terminal or other way;
 4. Run script setup.sh e.g.(sh setup.sh), this script will install all dependencies
-5. Run script update.sh e.g.(sh update.sh), for set up needed options and special commands;
+5. Run script update.sh e.g.(sh update.sh), for set up needed options and special commands, also create admin user with credentials (email=root@spaceshop.com, password=root);;
 6. After that you should set project interpreter from virtual environment from ./soft_environment/python_env, e.g.(./soft_environment/python_env/bin/python3.5);
 7. Also need create django-server in your IDE, if you are use it.
 8. Would you like use pip for instalation or other, don't forget activate python env, like we do it above
@@ -43,8 +43,8 @@ DOMAIN_NAME=localhost:8000
 1. Clone project [Space-Shop](https://github.com/Stanislav-Rybonka/spaceshop.git)
 2. Create settings.ini file, example below; 
 3. Go to the project root directory "spaceshop", through your terminal or other way;
-4. Run script setup.sh e.g.(sh setup.sh), this script will install all dependencies
-5. Run script update.sh e.g.(sh update.sh), for set up needed options and special commands;
+4. Run script setup.sh e.g.(sh setup.sh), this script will install all dependencies 
+5. Run script update.sh e.g.(sh update.sh), for set up needed options and special commands, also create admin user with credentials (email=root@spaceshop.com, password=root);
 6. Reload your server
 7. Don't forget about python env activation, during your activity on server
 

@@ -237,7 +237,7 @@
     "model": "product.product",
     "pk": 19,
     "fields": {
-      "category_id": 5,
+      "category_id": 4,
       "name": "Bread",
       "slug": "bread-4354",
       "price": 400,
@@ -250,7 +250,7 @@
     "model": "product.product",
     "pk": 20,
     "fields": {
-      "category_id": 5,
+      "category_id": 4,
       "name": "Cake",
       "slug": "cake-5394",
       "price": 400,
@@ -263,7 +263,7 @@
     "model": "product.product",
     "pk": 21,
     "fields": {
-      "category_id": 6,
+      "category_id": 5,
       "name": "Casio",
       "slug": "casio-5334",
       "price": 400,
@@ -289,7 +289,7 @@
     "model": "product.product",
     "pk": 23,
     "fields": {
-      "category_id": 6,
+      "category_id": 5,
       "name": "Gul",
       "slug": "gul-5334",
       "price": 300,

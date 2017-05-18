@@ -16,7 +16,7 @@
                                     <img src="{% static 'images/empty_cat.png' %}" title="Image"/>
                                 {% endif %}
                                 <p>{{ object.get_short_description }}</p>
-                                <span class="center-block">{{ object.name }}</span>
+                                <span class="center-block" style="color: cornflowerblue">{{ object.name }}</span>
                             </div>
                             <div class="top-grid-pic-info">
                                 <a href="{% url 'products' category_slug=object.slug %}">See all</a>
@@ -26,8 +26,8 @@
                 </div>
             </div>
         {% empty %}
-            <div class="col-md-12" style="padding: 100px;">
-                <p class="text-center text-danger" style="font-size: 25px;">Empty list! Load data!</p>
+            <div class="col-md-12" style="padding: 100px;height: 600px;">
+                <p class="text-center text-danger" style="font-size: 25px;color: #337ab7;">Empty list! Load data!</p>
             </div>
         {% endfor %}
     </div>

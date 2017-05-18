@@ -1,20 +1,27 @@
 <!-- header -->
-<div class="header">
+<div class="header" style="padding-bottom: 10px;">
     <div class="top-header">
         <div class="container">
-            <div class="rigister-info">
-                <ul>
-                    {% if user.is_authenticated %}
-                        <li><a href="{% url 'logout' %}">Logout</a></li>
-                    {% else %}
-                        <li><a href="{% url 'login' %}">Login</a></li>
-                        <li><a href="{% url 'register' %}">SignUp</a></li>
-                    {% endif %}
+            <div class="row">
+                <div class="col-md-3">
+                    <p style="margin-top: 20px;color: white;font-size: 30px;">SpaseShop</p>
+                </div>
+                <div class="col-md-9">
+                    <div class="rigister-info" style="margin-top: 25px;">
 
-                    <div class="clearfix"></div>
-                </ul>
+                        <ul>
+                            {% if user.is_authenticated %}
+                                <li><a class="btn btn-primary" href="{% url 'logout' %}">Logout</a></li>
+                            {% else %}
+                                <li><a class="btn btn-primary" href="{% url 'login' %}">Login</a></li>
+                                <li><a class="btn btn-primary" href="{% url 'register' %}">SignUp</a></li>
+                            {% endif %}
+
+                            <div class="clearfix"></div>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="clearfix"></div>
         </div>
     </div>
 </div>
