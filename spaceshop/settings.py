@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 from django.core.urlresolvers import reverse_lazy
+
+# Import decouple, allow set flexible options for production and development settings.py
+# All settings saved in settings.ini file, in root directory
 from  decouple import config, Csv
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -26,10 +29,12 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+ALLOWED_HOSTS = config('ALLOWED_HOSTS',default='127.0.0.1', cast=Csv())
 
+# Custom user model
 AUTH_USER_MODEL = 'accounts.Account'
 
+# Url for redirects
 LOGIN_REDIRECT_URL = reverse_lazy('categories')
 LOGIN_URL = reverse_lazy('login')
 LOGOUT_URL = reverse_lazy('logout')
@@ -86,12 +91,15 @@ WSGI_APPLICATION = 'spaceshop.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
+
+# Options for engine, allow use different database backends
 ENGINE = None
 if DEBUG:
     ENGINE = 'django.db.backends.postgresql_psycopg2'
 else:
     ENGINE = 'django.db.backends.mysql'
 
+# Database settings depend on settings.ini options
 DATABASES = {
     'default': {
         'ENGINE': ENGINE,
@@ -154,5 +162,3 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-

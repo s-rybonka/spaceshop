@@ -6,30 +6,23 @@
 
     <div class="row">
         <div class="col-md-12">
-
             {% block breadcrumbs %}
                 <ul class="breadcrumb" style="padding-top: 10px;margin-top: 10px;">
-
                     {% url 'categories' as categories %}
-
                     <li>
                         <a {% if categories|active:request %} class="active"
                         {% else %} style="color: darkgrey"{% endif %} href="{{ categories }}">Categories
                         </a>
                     </li>
-
                     {% url 'products' category_slug=category_slug|lower as products %}
-
                     <li>
                         <a {% if products|active:request %}style="text-decoration: underline"
                            {% else %} style="color: darkgrey"{% endif %}
                            href="{{ products }}">{{ category_slug|capfirst|slice:":-5" }}
                         </a>
                     </li>
-
                 </ul>
             {% endblock %}
-
             <div class="row">
                 {% for object in object_list %}
                     <div class="col-md-3" style="padding-bottom: 50px;">
@@ -45,7 +38,6 @@
                                                  src="{% static 'images/empty_prod-1.png' %}"
                                                  alt="Elliot Boots"/>
                                         {% endif %}
-
                                     </div>
                                     <div class="product-pic-info">
                                         <p>
@@ -54,13 +46,11 @@
                                         <p class="text-danger">
                                             {{ object.price|floatformat }}$
                                         </p>
-
                                         <div class="product-pic-info-price-cart">
                                             <div class="product-pic-info-price">
                                                 <span>{{ object.name }}</span>
 
                                             </div>
-
                                             <div class="product-pic-info-cart">
                                                 <a class="p-btn"
                                                    href="{% url 'product_details' category_slug=object.category.slug product_slug=object.slug %}">Details</a>
@@ -72,12 +62,13 @@
                             </div>
                         </div>
                     </div>
+                {% empty %}
+                    <div class="col-md-12" style="padding: 100px;">
+                        <p class="text-center text-danger" style="font-size: 25px;">Empty list! Load data!</p>
+                    </div>
                 {% endfor %}
-
             </div>
-
         </div>
-
     </div>
 
 {% endblock %}

@@ -3,7 +3,7 @@
 
 {% block content %}
 
-    <div class="wrap" style="padding-bottom: 400px">
+    <div class="wrap">
         <div class="main">
             <div class="login_left center-block">
                 <h3 style="color: gray">Log in</h3>
@@ -13,27 +13,22 @@
 
                             <div class="form-group">
                                 {% if form.errors %}
-                                    <p class="alert-danger">Your username and password didn't match. Please try
+                                    <p style="color: red">Your username and password didn't match. Please try
                                         again.</p>
                                 {% endif %}
                                 {% if request.GET.next %}
                                     {% if user.is_authenticated %}
-                                        <p class="alert-danger">Your account doesn't have access to this page. To
+                                        <p style="color: red">Your account doesn't have access to this page. To
                                             proceed,
                                             please login with an account that has access.</p>
                                     {% else %}
-                                        <p class="alert-danger">Please login for review this page.</p>
+                                        <p style="color: red">Please login for review this page.</p>
                                     {% endif %}
                                 {% endif %}
                                 <div style="padding-left: 15px;padding-top: 20px;border: 1px solid gainsboro">
                                     <form method="post" action="{% url 'login' %}">
-
-                                        {% bootstrap_form_errors form=form %}
-
                                         {% csrf_token %}
-
-                                        {% bootstrap_field form.email show_label=False %}
-
+                                        {% bootstrap_field form.username show_label=False %}
                                         {% bootstrap_field form.password show_label=False %}
 
                                         <div class="row">
@@ -54,7 +49,6 @@
                                     </form>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>

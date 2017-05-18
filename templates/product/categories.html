@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
-
 {% block content %}
 
     <div class="row">
@@ -11,30 +10,26 @@
                     <div class="container">
                         <div class="col-md-4 top-grid text-center">
                             <div class="top-grid-pic text-center">
-
                                 {% if object.image %}
-                                    <img src="{{ object.image.url }}" title="Boots"/>
+                                    <img src="{{ object.image.url }}" title="Image"/>
                                 {% else %}
-                                    <img src="{% static 'images/empty_cat.png' %}" title="Boots"/>
+                                    <img src="{% static 'images/empty_cat.png' %}" title="Image"/>
                                 {% endif %}
                                 <p>{{ object.get_short_description }}</p>
                                 <span class="center-block">{{ object.name }}</span>
-
                             </div>
                             <div class="top-grid-pic-info">
                                 <a href="{% url 'products' category_slug=object.slug %}">See all</a>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
+        {% empty %}
+            <div class="col-md-12" style="padding: 100px;">
+                <p class="text-center text-danger" style="font-size: 25px;">Empty list! Load data!</p>
+            </div>
         {% endfor %}
-
     </div>
 
-{% endblock %}
-
-{% block scripts %}
-    <script src="{% static 'js/auto_hover.js' %}" type="text/javascript"></script>
 {% endblock %}

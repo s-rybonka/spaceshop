@@ -6,6 +6,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from accounts.models import Account
 
 
+# Command which create superuser in App
 class Command(BaseCommand):
     help = _('Set up project functionality options and fill tables')
 

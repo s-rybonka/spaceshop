@@ -10,7 +10,7 @@ html, body {
 
 	--*/
     font-size: 100%;
-    background: #f7f6ee;
+
 }
 
 body a {
@@ -4646,4 +4646,13 @@ span.color7 {
 
 .payments {
     font-size: 1.5em;
+}
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
 }

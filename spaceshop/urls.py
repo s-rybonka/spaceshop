@@ -20,9 +20,9 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'', include('product.urls')),
-    url(r'', include('accounts.urls')),
-    url('', include('django.contrib.auth.urls')),
+    url(r'^', include('product.urls')),
+    url(r'^', include('accounts.urls')),
+    url('^', include('django.contrib.auth.urls')),
 ]
 # Set media files folder only for development
 if DEBUG:

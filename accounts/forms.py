@@ -1,12 +1,12 @@
 from django import forms
 from django.contrib.auth import password_validation
-from django.contrib.auth.forms import AuthenticationForm, PasswordResetForm
 
 from django.utils.translation import ugettext_lazy as _
 from accounts.models import Account
 
 
 class RegisterForm(forms.Form):
+    '''Custom form for user registration'''
     email = forms.EmailField(
         label=_("Email"),
         strip=False,
@@ -29,6 +29,12 @@ class RegisterForm(forms.Form):
         self.request = request
 
     def clean_email(self):
+        '''
+        Check if valid email address
+        and if no already exist
+
+        :return: email
+        '''
         email = self.cleaned_data.get('email')
 
         if not email:
@@ -40,6 +46,11 @@ class RegisterForm(forms.Form):
         return email
 
     def clean_password2(self):
+        '''
+        Check password, compare during sign up
+
+        :return: valid password
+        '''
         password1 = self.cleaned_data.get("password1")
         password2 = self.cleaned_data.get("password2")
 
@@ -54,6 +65,10 @@ class RegisterForm(forms.Form):
         return password2
 
     def save(self, commit=True):
+        '''Override save method
+        :param commit:
+        :return: user
+        '''
         user = Account(
             email=self.cleaned_data.get('email'),
         )
@@ -62,27 +77,3 @@ class RegisterForm(forms.Form):
             user.save()
 
         return user
-
-
-class LoginForm(AuthenticationForm):
-    email = forms.EmailField(
-        label=_("Email"),
-        strip=False,
-        required=True,
-    )
-    password = forms.CharField(
-        label=_("Password"),
-        strip=False,
-        widget=forms.PasswordInput(),
-    )
-
-    error_messages = {
-        'invalid_login': _(
-            "Please enter a correct username and password. Note that password "
-            "field is case-sensitive."
-        ),
-        'inactive': _("This account is inactive."),
-    }
-
-    def confirm_login_allowed(self, user):
-        super().confirm_login_allowed(user)

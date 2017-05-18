@@ -9,7 +9,8 @@ class Category(models.Model):
     """Category model"""
     name = models.CharField(max_length=30, verbose_name='Category', blank=False, unique=True)
     slug = models.SlugField(max_length=30, verbose_name='Slug', unique=True)
-    image = ResizedImageField(size=[320,300],crop=['middle', 'center'], verbose_name='Image', upload_to='media',blank=True,null=True,quality=100)
+    image = ResizedImageField(size=[320, 300], crop=['middle', 'center'], verbose_name='Image', upload_to='media',
+                              blank=True, null=True, quality=100)
     description = models.CharField(max_length=1024, verbose_name='Description', blank=False)
 
     class Meta:
@@ -35,7 +36,7 @@ class Category(models.Model):
         :param force_update:
         :param using:
         :param update_fields:
-        :return:
+        :return: category object
         """
 
         self.slug = slugify('{0}-{1}'.format(self.name, get_random_string(4, '0123456789')))
@@ -48,7 +49,8 @@ class Product(models.Model):
     category = models.ForeignKey('product.Category', related_name='products', verbose_name='Category', null=True)
     name = models.CharField(verbose_name='Product', max_length=30)
     slug = models.SlugField(max_length=30, verbose_name='Slug', unique=True)
-    image = ResizedImageField(size=[240,240],crop=['middle', 'center'],verbose_name='Image', upload_to='media', null=True,blank=True)
+    image = ResizedImageField(size=[240, 240], crop=['middle', 'center'], verbose_name='Image', upload_to='media',
+                              null=True, blank=True)
     description = models.CharField(max_length=1024, verbose_name='description')
     price = models.FloatField(verbose_name='Price')
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
@@ -65,7 +67,6 @@ class Product(models.Model):
         """
         return self.name
 
-
     def get_products_description(self):
         return '{0}...'.format(self.description[:30])
 
@@ -78,7 +79,7 @@ class Product(models.Model):
         :param force_update:
         :param using:
         :param update_fields:
-        :return: product instance
+        :return: product object
         """
         self.slug = slugify('{0}-{1}'.format(self.name, get_random_string(4, '0123456789')))
 

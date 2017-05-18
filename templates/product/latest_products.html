@@ -4,12 +4,10 @@
 {% block content %}
 
     <div class="row">
-        <div class="col-md-12" style="padding-bottom: 700px;">
-
-            <div class="row" style="margin-top: 20px; padding-bottom: 50px;">
+        <div class="col-md-12">
+            <div class="row" style="margin-top: 20px;">
                 {% for object in object_list %}
                     <div class="col-md-3" style="padding-bottom: 50px;">
-
                         <div class="item" style="padding-top: 10px;">
                             <div class="product-grid">
                                 <div class="product-pic">
@@ -25,7 +23,6 @@
                                 <div class="product-pic-info">
                                     <div class="product-pic-info-price-cart">
                                         <div class="product-pic-info-price">
-
                                             <p>
                                                 {{ object.get_products_description }}
                                             </p>
@@ -45,14 +42,14 @@
                                 </div>
                             </div>
                         </div>
-
-
+                    </div>
+                {% empty %}
+                    <div class="col-md-12" style="padding: 100px;">
+                        <p class="text-center text-danger" style="font-size: 25px;">Empty list! Load data</p>
                     </div>
                 {% endfor %}
-
             </div>
-
         </div>
-
     </div>
+
 {% endblock %}
