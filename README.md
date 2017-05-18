@@ -16,7 +16,7 @@
 6. After that you should set project interpreter from virtual environment from ./soft_environment/python_env, e.g.(./soft_environment/python_env/bin/python3.5);
 7. Also need create django-server in your IDE, if you are use it.
 8. Would you like use pip for instalation or other, don't forget activate python env, like we do it above
-#### Commonly step 5 and 6 should do in the IDE. ####
+#### Commonly step 5 and 6 should do in IDE. ####
 
 ## Settings ## 
 
