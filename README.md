@@ -8,7 +8,7 @@
 ## Installation ##
 
 #### Dev ####
-1. Clone project [Space-Shop](https://github.com/Stanislav-Rybonka/spaceshop.git)
+1. Clone project [SpaceShop](https://github.com/Stanislav-Rybonka/spaceshop.git)
 2. Create settings.ini file, example below; 
 3. Go to the project root directory "spaceshop", through your terminal or other way;
 4. Run script setup.sh e.g.(sh setup.sh), this script will install all dependencies
@@ -40,7 +40,7 @@ DOMAIN_NAME=localhost:8000
 * BashSupport
 
 ### Production ###
-1. Clone project [Space-Shop](https://github.com/Stanislav-Rybonka/spaceshop.git)
+1. Clone project [SpaceShop](https://github.com/Stanislav-Rybonka/spaceshop.git)
 2. Create settings.ini file, example below; 
 3. Go to the project root directory "spaceshop", through your terminal or other way;
 4. Run script setup.sh e.g.(sh setup.sh), this script will install all dependencies 
