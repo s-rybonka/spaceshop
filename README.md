@@ -1,5 +1,5 @@
 # SpaceShop #
-[Demo:spaceshop.com](http://stanislavrybonka.pythonanywhere.com/)
+<a href="http://stanislavrybonka.pythonanywhere.com/" target="_blank">Demo:spaceshop.com</a>
 
 ## Pre-requirements ##
 * Python >= 3.5
