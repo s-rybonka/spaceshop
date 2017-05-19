@@ -142,6 +142,9 @@ STATICFILES_FINDERS = (
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
+# Back for emails
+EMAIL_BACKEND = config('EMAIL_BACKEND')
+
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
