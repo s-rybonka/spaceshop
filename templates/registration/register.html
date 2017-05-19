@@ -2,15 +2,15 @@
 {% load bootstrap3 %}
 
 {% block content %}
-    <div class="wrap">
+    <div class="wrap" >
         <div class="main">
             <div class="login_left center-block">
                 <h3 style="color: gray">Sign Up</h3>
-                <div class="registration">
+                <div class="registration" style="height: 600px;" >
                     <div class="registration_left">
-                        <div class="registration_form">
+                        <div class="registration_form" >
                             <div style="border: 1px solid gainsboro">
-                                <div class="form-group">
+                                <div class="form-group" >
                                     <form method="POST" action="{% url 'register' %}" style="padding-left: 17px;">
                                         {% bootstrap_form_errors form=form %}
                                         {% csrf_token %}
