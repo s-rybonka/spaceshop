@@ -93,16 +93,10 @@ WSGI_APPLICATION = 'spaceshop.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
-# Options for engine, allow use different database backends
-if DEBUG:
-    ENGINE = 'django.db.backends.postgresql_psycopg2'
-else:
-    ENGINE = 'django.db.backends.mysql'
-
 # Database settings depend on settings.ini options
 DATABASES = {
     'default': {
-        'ENGINE': ENGINE,
+        'ENGINE': config('DB_ENGINE'),
         'NAME': config('DB_NAME'),
         'USER': config('DB_USER'),
         'PASSWORD': config('DB_PASSWORD'),
@@ -135,7 +129,7 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'djangobower.finders.BowerFinder',
-    'product.utils.AssertsFinder',
+    'product.utils.AssetsFinder',
     'compressor.finders.CompressorFinder',
 )
 

@@ -27,11 +27,13 @@ Create `settings.ini`,file in `project root`  with options like this:
 DEBUG=True
 ALLOWED_HOSTS=.127.0.0.1
 SECRET_KEY=stf)=8djmvems$$lnmc-2@o9puwf&$u(ui51nvdy2vs$)%%d$v+
+DB_ENGINE=django.db.backends.postgresql_psycopg2
 DB_NAME=spaceshopdb
 DB_USER=root
 DB_PASSWORD=root
 DB_HOST=127.0.0.1
 DOMAIN_NAME=localhost:8000
+EMAIL_BACKEND=django.core.mail.backends.console.EmailBackend
 ```
 ##### Don't forget about database, you should create it alone, configure roles and permissions if you have some special
 
@@ -58,11 +60,13 @@ Create `settings.ini`,file in `project root`  with options like this:
 DEBUG=False
 ALLOWED_HOSTS=your host
 SECRET_KEY=your key
+DB_ENGINE=django.db.backends.postgresql_psycopg2
 DB_NAME=name of your DB
 DB_USER= your user
 DB_PASSWORD=yiur password
 DB_HOST= your DB host
 DOMAIN_NAME=your domain name
+EMAIL_BACKEND=django.core.mail.backends.console.EmailBackend
 ```
 ## Developments idioms ##
 

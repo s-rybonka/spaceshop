@@ -44,16 +44,16 @@ class AuthViewsTestCase(TestCase):
     def test_sign_up_page(self):
         response = self.client.get(reverse('register'))
         self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'registration/register.html')
+        self.assertTemplateUsed(response, 'accounts/register.html')
 
     def test_sign_in_page(self):
         response = self.client.get(reverse('login'))
         self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'registration/login.html')
+        self.assertTemplateUsed(response, 'accounts/login.html')
 
     def test_sign_out_page(self):
         c = Client()
         c.login(email='root@spaceshop.com', password='secret')
         response = self.client.get(reverse('logout'))
         self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'registration/logout.html')
+        self.assertTemplateUsed(response, 'accounts/logout.html')

@@ -7,15 +7,15 @@ urlpatterns = [
         product_views.CategoryView.as_view(),
         name='categories'),
 
-    url(r'^all-products/$',
+    url(r'^products/$',
         product_views.AllProductsViews.as_view(),
-        name='all_products'),
-
-    url(r'^products/(?P<category_slug>\w+-\d+)/$',
-        product_views.ProductsView.as_view(),
         name='products'),
 
-    url(r'^products/(?P<category_slug>\w+.*\d+)/(?P<product_slug>\w+.*\d+)/$',
+    url(r'^products-in-category/(?P<category_slug>\w+.*\d+)/$',
+        product_views.ProductsView.as_view(),
+        name='products_in_category'),
+
+    url(r'^product-details/(?P<product_slug>\w+.*\d+)/$',
         product_views.ProductDetailsViews.as_view(),
         name='product_details'),
 

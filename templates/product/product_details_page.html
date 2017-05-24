@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load staticfiles bootstrap3 %}
+{% load active_item %}
+
+{% block content %}
+
+    <div class="row">
+
+        <div class="col-md-12">
+            {% block breadcrumbs %}
+                <ul class="breadcrumb">
+                    {% url 'categories' as categories_url %}
+                    {% url 'products_in_category' category_slug=object.category.slug as products_in_category_url %}
+                    {% url 'product_details' product_slug=object.slug as product_details_url %}
+                    <li>
+                        <a class="{% if categories_url|active:request %}active-item {% else %}no-active-item{% endif %}"
+                           href="{{ categories_url }}"> Categories
+                        </a>
+                    </li>
+                    <li>
+                        <a class="{% if products_in_category_url|active:request %}active-item{% else %}no-active-item{% endif %}"
+                           href="{{ products_in_category_url }}"> {{ object.category.name }}
+                        </a>
+                    </li>
+                    <li>
+                        <a class="{% if product_details_url|active:request %}active-item{% else %}no-active-item{% endif %}"
+                           href="{{ product_details_url }}"> {{ object.name }}
+                        </a>
+                    </li>
+                </ul>
+            {% endblock %}
+        </div>
+
+        <div class="details-left">
+            <div class="details-left-slider">
+                <ul id="etalage" class="etalage">
+                    <li class="etalage_thumb thumb_3 etalage_thumb_active">
+                        {% if object.image %}
+                            <img class="single_prod img-responsive" src="{{ object.image.url }}"
+                                 alt="img"/>
+                        {% else %}
+                            <img class="single_prod img-responsive" src="{% static 'images/empty_prod-1.png' %}"
+                                 alt="img"/>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+            <div class="details-left-info">
+                <div class="details-right-head">
+                    <h1 class="details_name">{{ object.name }}</h1>
+
+                    <p class="product-detail-info">
+                        {{ object.description }}
+                    </p>
+                    <p class="bottom-desc">{{ object.price|floatformat }} $</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -7,13 +7,11 @@
             <ul>
                 <li class="{% if url_name == 'categories' %}active{% endif %}"><a
                         href="{% url 'categories' %}">{% trans 'Categories' %}<span> </span></a></li>
-                <li class="{% if url_name == 'all_products' %}active{% endif %}"><a
-                        href="{% url 'all_products' %}">{% trans 'All Products' %}<span> </span></a></li>
+                <li class="{% if url_name == 'products' %}active{% endif %}"><a
+                        href="{% url 'products' %}">{% trans 'All Products' %}<span> </span></a></li>
                 <li class="{% if url_name == 'latest_products' %}active{% endif %}"><a
                         href="{% url 'latest_products' %}">{% trans 'Latest Products' %}<span> </span></a></li>
-                <div class="clearfix"></div>
             </ul>
         {% endwith %}
     </div>
 </div>
-<!--- top-nav -->

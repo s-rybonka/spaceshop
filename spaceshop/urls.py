@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from spaceshop.settings import MEDIA_URL,MEDIA_ROOT,DEBUG,STATIC_URL,STATIC_ROOT
+from spaceshop.settings import MEDIA_URL, MEDIA_ROOT, DEBUG, STATIC_URL, STATIC_ROOT
 from django.conf.urls.static import static
 
 urlpatterns = [
@@ -26,5 +26,5 @@ urlpatterns = [
 ]
 # Set media files folder only for development
 if DEBUG:
-    urlpatterns += [] + static(STATIC_URL, document_root=STATIC_ROOT)
-    urlpatterns += [] + static(MEDIA_URL, document_root=MEDIA_ROOT)
+    urlpatterns + static(STATIC_URL, document_root=STATIC_ROOT)
+    urlpatterns + static(MEDIA_URL, document_root=MEDIA_ROOT)

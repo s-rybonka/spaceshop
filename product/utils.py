@@ -1,14 +1,10 @@
-try:
-    from collections import OrderedDict
-except ImportError:
-    from ordereddict import OrderedDict
-
 import os
 from django.contrib.staticfiles.finders import FileSystemFinder
 from django.core.files.storage import FileSystemStorage
+from collections import OrderedDict
 
 
-class AssertsFinder(FileSystemFinder):
+class AssetsFinder(FileSystemFinder):
     """Find static files installed with bower"""
 
     def __init__(self, apps=None, *args, **kwargs):

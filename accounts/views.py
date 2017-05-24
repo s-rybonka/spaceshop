@@ -9,7 +9,7 @@ from .forms import RegisterForm
 
 
 class RegisterView(View):
-    template = "registration/register.html"
+    template = "accounts/register.html"
     form = RegisterForm
 
     def get(self, request, **kwargs):

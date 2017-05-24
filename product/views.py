@@ -8,69 +8,49 @@ from .models import Category, Product
 
 
 class CategoryView(SuccessMessageMixin, ListView):
-    '''Get all categories 5 per page here'''
     paginate_by = 5
-    template_name = 'product/categories.html'
+    template_name = 'product/category_list.html'
 
     def get_queryset(self):
         return Category.objects.all()
 
 
 class AllProductsViews(ListView):
-    '''Get all products, 10 per page'''
     paginate_by = 10
-    template_name = 'product/all_products.html'
+    template_name = 'product/product_list.html'
     model = Product
 
 
 class ProductsView(ListView):
-    '''Get some products inside chosen category5 per page'''
     paginate_by = 5
-    template_name = 'product/products.html'
+    template_name = 'product/product_in_category_list.html'
 
     def get_context_data(self, **kwargs):
         context = super(ProductsView, self).get_context_data()
 
-        # get slug from kwargs
         category_slug = self.kwargs.get('category_slug')
 
-        # set slug to context
         context['category_slug'] = category_slug
 
         return context
 
     def get_queryset(self):
-        '''Get products
-
-        :return: object_list depend on category_slug
-        '''
         return Product.objects.filter(category__slug=self.kwargs.get('category_slug'))
 
 
 class ProductDetailsViews(DetailView):
-    '''Get single product here'''
-    template_name = 'product/product_details.html'
+    template_name = 'product/product_details_page.html'
     model = Product
 
     def get_object(self, queryset=None):
-        '''Get single object
-
-        :param queryset:
-        :return: object depend on slug
-        '''
         return Product.objects.get(slug=self.kwargs.get('product_slug'))
 
 
 class LatestProductsView(LoginRequiredMixin, ListView):
-    '''Get latest products list during 24 hours'''
     paginate_by = 5
-    template_name = 'product/latest_products.html'
-    hours_24 = timezone.now() - timezone.timedelta(days=1)
+    template_name = 'product/latest_product_list.html'
 
     def get_queryset(self):
-        ''' Get products list which added during 24 hours
+        time_24_hours_ago = timezone.now() - timezone.timedelta(days=1)
 
-        :return: queryset
-        '''
-        hours_24 = timezone.now() - timezone.timedelta(days=1)
-        return Product.objects.filter(created_at__gte=hours_24)
+        return Product.objects.filter(created_at__gte=time_24_hours_ago)

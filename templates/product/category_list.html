@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+{% block title %} Categories {% endblock %}
 
 {% block content %}
 
@@ -19,15 +20,15 @@
                                 <span class="center-block" style="color: cornflowerblue">{{ object.name }}</span>
                             </div>
                             <div class="top-grid-pic-info">
-                                <a href="{% url 'products' category_slug=object.slug %}">See all</a>
+                                <a href="{% url 'products_in_category' category_slug=object.slug %}">See all</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         {% empty %}
-            <div class="col-md-12" style="padding: 100px;height: 600px;">
-                <p class="text-center text-danger" style="font-size: 25px;color: #337ab7;">Empty list! Load data!</p>
+            <div class="col-md-12 empty_list">
+                <p class="text-center text-danger">Empty list!</p>
             </div>
         {% endfor %}
     </div>

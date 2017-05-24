@@ -5,43 +5,57 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{% block title %}SpaceShop{% endblock %}</title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Google fonts -->
     <link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+
+    <!-- Bootstrap css files -->
     <link href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}" rel='stylesheet' type='text/css'/>
+
+    <!-- Font awesome icons -->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <!-- Custom Theme files -->
+
+    <!-- Custom css files -->
     <link href="{% static 'css/style.css' %}" rel='stylesheet' type='text/css'/>
-    <!-- Custom Theme files -->
+
 
     <!-- Block for styles extends -->
     {% block styles %}{% endblock %}
 </head>
 <body>
 
+<!-- Include header and top nav bar  -->
 {% include 'snippets/header.html' %}
 {% include 'snippets/top-nav.html' %}
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <!-- Main block for page content -->
-            {% block content %}
+<!-- Main block for content -->
+<div class="page-wrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
 
-                {% block breadcrumbs %}
+                <!-- Block for future extends -->
+                {% block content %}
+
+                    <!-- Block breadcrumbs for extends -->
+                    {% block breadcrumbs %}
+
+                    {% endblock %}
 
                 {% endblock %}
 
-            {% endblock %}
+                {% include 'snippets/pagination.html' %}
 
-            {% include 'snippets/pagination.html' %}
-
+            </div>
         </div>
     </div>
-
 </div>
-
+<!-- Include footer -->
 {% include 'snippets/footer.html' %}
 
+<!-- Include all common js files here -->
 <script src="{% static 'jquery/dist/jquery.min.js' %}"></script>
 
 <!-- Block for scripts extends -->

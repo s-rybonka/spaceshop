@@ -27,7 +27,7 @@ body a {
 }
 
 .top-header {
-    background-color:#337ab7;
+    background-color: #337ab7;
     background-size: cover;
     min-height: 80px;
     padding-bottom: 10px;
@@ -2435,7 +2435,7 @@ body {
     margin: 14px 0;
 }
 
-/********** Login & registration *************/
+/********** Login & accounts *************/
 .log_reg {
     border-right: 1px solid rgb(60, 60, 60);
     padding: 12px 16px;
@@ -2504,7 +2504,7 @@ h4.style {
 
 }
 
-/* start registration */
+/* start accounts */
 .registration {
     margin: 4% 0;
 }
@@ -4648,11 +4648,99 @@ span.color7 {
 .payments {
     font-size: 1.5em;
 }
-.footer{
+
+.footer {
     background-color: #337ab7;
-    height:40px;
-    bottom:0px;
-    left:0px;
-    right:0px;
-    margin-bottom:0px;
+    height: 40px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+}
+
+* {
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+.page-wrap {
+    min-height: 100%;
+    /* equal to footer height */
+    margin-bottom: -142px;
+}
+
+.page-wrap:after {
+    content: "";
+    display: block;
+}
+
+.site-footer, .page-wrap:after {
+    height: 142px;
+}
+
+.site-footer {
+    background: #337ab7;
+    color: white;
+}
+
+.site-footer p {
+    position: relative;
+    top: 50px;
+    font-size: 23px;
+}
+
+.product_item {
+    padding: 20px;
+}
+
+.empty_list {
+    padding: 100px;
+}
+
+.empty_list p {
+    color: red;
+    font-size: 25px;
+}
+
+.no-active-item {
+    color: darkgrey;
+}
+
+.no-active-item:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+.active-item {
+    text-decoration: underline;
+}
+
+.breadcrumb {
+    margin-top: 10px;
+}
+
+.etalage {
+    display: block;
+    width: 314px;
+    height: 800px;
+}
+
+.price {
+    color: red;
+}
+
+.details_name {
+    font-size: 25px;
+    color: #0AA5E2;
+}
+
+.bottom-desc {
+    padding-bottom: 10px;
+    color: red;
+}
+.product-pic-info-price span{
+    color: red;
 }

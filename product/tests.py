@@ -38,7 +38,7 @@ class CategoryTestCase(TestCase):
         '''
         response = self.client.get(reverse('categories'))
         self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'product/categories.html')
+        self.assertTemplateUsed(response, 'product/category_list.html')
         self.assertEquals(len(response.context['object_list']), 5)
 
 
@@ -75,7 +75,7 @@ class ProductTestCase(TestCasePlus):
         category = Category.objects.first()
         response = self.client.get(reverse('products', kwargs={'category_slug': category.slug}))
         self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'product/products.html')
+        self.assertTemplateUsed(response, 'product/product_in_category_list.html')
         self.assertEquals(len(response.context['object_list']), 5)
 
     def test_product_details_data(self):
@@ -88,7 +88,7 @@ class ProductTestCase(TestCasePlus):
         response = self.client.get(
             reverse('product_details', kwargs={'category_slug': category.slug, 'product_slug': product.slug}))
         self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'product/product_details.html')
+        self.assertTemplateUsed(response, 'product/product_details_page.html')
         self.assertTrue(response.context['object'])
 
     def test_all_products_data(self):
@@ -98,7 +98,7 @@ class ProductTestCase(TestCasePlus):
         '''
         response = self.client.get(reverse('all_products'))
         self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'product/all_products.html')
+        self.assertTemplateUsed(response, 'product/product_list.html')
         self.assertEquals(len(response.context['object_list']), 10)
 
     def test_latest_products(self):

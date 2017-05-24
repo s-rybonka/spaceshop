@@ -6,7 +6,6 @@ from accounts.models import Account
 
 
 class RegisterForm(forms.Form):
-    '''Custom form for user registration'''
     email = forms.EmailField(
         label=_("Email"),
         strip=False,
