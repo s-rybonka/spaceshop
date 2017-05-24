@@ -137,7 +137,7 @@ STATICFILES_FINDERS = (
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
 # Back for emails
-EMAIL_BACKEND = config('EMAIL_BACKEND')
+EMAIL_BACKEND = config('EMAIL_BACKEND',default=None)
 
 LANGUAGE_CODE = 'en-us'
 
