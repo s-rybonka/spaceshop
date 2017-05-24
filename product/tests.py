@@ -73,7 +73,7 @@ class ProductTestCase(TestCasePlus):
         :return: categories
         '''
         category = Category.objects.first()
-        response = self.client.get(reverse('products', kwargs={'category_slug': category.slug}))
+        response = self.client.get(reverse('products_in_category', kwargs={'category_slug': category.slug}))
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'product/product_in_category_list.html')
         self.assertEquals(len(response.context['object_list']), 5)
@@ -86,7 +86,7 @@ class ProductTestCase(TestCasePlus):
         category = Category.objects.get(pk=1)
         product = Product.objects.filter(category=1).first()
         response = self.client.get(
-            reverse('product_details', kwargs={'category_slug': category.slug, 'product_slug': product.slug}))
+            reverse('product_details', kwargs={'product_slug': product.slug}))
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'product/product_details_page.html')
         self.assertTrue(response.context['object'])
@@ -96,7 +96,7 @@ class ProductTestCase(TestCasePlus):
 
         :return: object_list
         '''
-        response = self.client.get(reverse('all_products'))
+        response = self.client.get(reverse('products'))
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'product/product_list.html')
         self.assertEquals(len(response.context['object_list']), 10)
